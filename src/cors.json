@@ -1,6 +1,6 @@
 [
     {
-      "origin": ["https://www.sshipdashr.com"],
+      "origin": ["*"],
       "method": ["GET", "POST", "OPTIONS", "PUT"],
       "maxAgeSeconds": 3600
     }
