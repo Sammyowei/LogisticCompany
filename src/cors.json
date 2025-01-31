@@ -1,6 +1,6 @@
 [
     {
-      "origin": ["http://localhost:5173"],
+      "origin": ["https://www.sshipdashr.com"],
       "method": ["GET", "POST", "OPTIONS", "PUT"],
       "maxAgeSeconds": 3600
     }
