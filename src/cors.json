@@ -1,7 +1,8 @@
 [
-    {
-      "origin": ["*"],
-      "method": ["GET", "POST", "OPTIONS", "PUT"],
-      "maxAgeSeconds": 3600
-    }
-  ]
+  {
+    "origins": ["*"],
+    "methods": ["GET", "POST", "OPTIONS", "PUT"],
+    "responseHeaders": ["Content-Type", "Authorization"],
+    "maxAgeSeconds": 3600
+  }
+]
