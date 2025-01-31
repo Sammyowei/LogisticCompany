@@ -27,7 +27,7 @@ function App() {
         <Route path="/login" element={<LoginAdmin />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NoPage/>} />
-        <Route path='/admin' element={<Admin/>}/>
+        <Route path='/roland' element={<Admin/>}/>
       
     </Routes>
       </>
