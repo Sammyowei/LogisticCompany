@@ -1,0 +1,286 @@
+$mobile:480px;
+$tablet:768px;
+$desktop:1024px;
+$largeDesktop:1200px;
+
+.homeContainer{
+    
+    .content{
+       
+        .heroSection{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            padding: 10px 60px;
+
+            background: linear-gradient(to right, #d4e4dd,#e8d8ce,);
+
+            .heroMessage{
+                margin-left: 10px;
+                h1{
+                    font-size: 50px;
+                    inline-size:none;
+
+                    span{
+                        color: #A9592C;
+                    }
+                }
+                form{
+                    .trackingContianer{
+                        margin-top: 20px;
+                        input{
+                            width: 250px;
+                        }
+                        button{
+                            background-color: #A9592C;
+                            font-weight: bold;
+                        }
+                        .tracking{
+                            padding: 10px;
+                            border: none;
+                            color: #fff;
+                            
+
+                            
+                        }
+                    }
+                }
+            }
+            .callToAction{
+                margin-top: 10px;
+            }
+        }
+        .heroImage {
+          img {
+            width: 700px;
+            position: relative; // Ensure the image's position can be animated
+            animation: slideInFromRight 1.5s ease-out; // Animation with duration and easing
+          }
+        }
+        
+        // Keyframes for the slide-in-from-right effect
+        @keyframes slideInFromRight {
+          from {
+            transform: translateX(100%); // Start from the right, off-screen
+          }
+          to {
+            transform: translateX(0); // End at the default position
+          }
+        }
+        
+
+       .servicesSection{
+        margin-top: 30px;
+        // background: linear-gradient(to right, #d4e4dd,#e8d8ce,);
+        .services{
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+
+
+        }
+
+        .cardss{
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 15px 15px;
+          margin-top: 30px;
+          padding: 10px 60px;
+            
+        }
+       }
+
+       .why-choose-us {
+        padding: 10px 60px;
+        background-color: #ffffff; /* You can adjust this color to fit your design */
+      
+        h2{
+          text-align: center;
+          font-weight: bold;
+        }
+        .content {
+          display: flex;
+          justify-content: center;
+          flex-direction: row;
+          align-items: center;
+          background-color: #ffffff;
+        }
+      
+        .image-container {
+          max-width: 100%;
+          padding: 1rem;
+          
+          img {
+            display: block; /* Ensure the image is displayed */
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+          }
+        }
+      
+        .features {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          flex-direction: column;
+        }
+      
+        .feature {
+          box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+          padding: 1.5rem;
+          border-radius: 8px;
+
+          margin: 10px;
+          .icon {
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+      
+          .text {
+            h3 {
+              font-size: 1.25rem;
+              // margin-bottom: 0.5rem;
+            }
+      
+            p {
+              font-size: 0.9rem;
+              color: #666;
+            }
+          }
+        }
+      }
+      
+      
+      .testimonies{
+        padding: 30px;
+        h2{
+            text-align: center;
+            margin-top: 10px;
+            font-size: 2.5rem;
+        }
+        .testimoniesContainer{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px 15px;
+            margin-top: 30px;
+        }
+      }
+      .FAQU{
+        padding: 30px;
+      }
+      .FooterSection{
+       margin-top: 30px;
+      }
+    }
+}
+
+@media(max-width:$mobile){
+  .content {
+
+    .heroSection {
+      flex-direction: column;
+      align-items: center;
+      height: 50vh;
+      padding: 30px;
+      
+
+      .heroMessage {
+        margin-left: 0;
+        text-align: center;
+        justify-content: center;
+        margin-top: 30%;
+
+        h1 {
+          font-size: 30px;
+        }
+
+        .trackingContianer {
+          input {
+            width: 200px;
+          }
+
+          button {
+            width: 100%;
+            margin-top: 10px;
+          }
+        }
+      }
+
+      .heroImage {
+        display: none;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    .servicesSection {
+      .cardss {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .why-choose-us {
+      padding: 2rem 1rem;
+      background-color: #ffffff;
+  
+      .content {
+        flex-direction: column;
+        align-items: center;
+      }
+  
+      .image-container {
+        display: none;
+        max-width: 100%;
+        padding: 1rem;
+      }
+  
+      .features {
+        background-color: rgb(255, 255, 255);
+        max-width: 100%;
+        grid-template-columns: 1fr 1fr;
+      }
+  
+      .feature {
+        gap: 1rem;
+        background-color: #ffff;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+        .icon {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+  
+        .text {
+          h3 {
+            font-size: 1.25rem;
+          }
+  
+          p {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+
+    .testimonies {
+      .testimoniesContainer {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    .FooterSection {
+      margin-top: 20px;
+    }
+  }
+
+}

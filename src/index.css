@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme{
+  --color-main: #555;
+  --color-sub: #777;
+}
+
+*{
+    user-select: none;
+}
+
+*{
+    @apply outline-none box-border;
+}
+
+.z{
+  z-index: 100;
+}
+.z-50{
+  z-index: 50;
+}
+.z-40{
+  z-index: 40;
+}

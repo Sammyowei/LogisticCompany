@@ -1,0 +1,17 @@
+.cardContainer{
+    background-color: #fff;
+    padding: 20px;
+    width: 250px;
+    height: 400px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    .title,.content,.image2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    img{
+        text-align: center;
+        width: 80px;
+    }
+}
