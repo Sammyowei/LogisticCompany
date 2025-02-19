@@ -28,8 +28,8 @@ const About = () => {
         <div className="AboutUss">
           <div className="aboutUstT">
             <div className="text">
-              <h1>Welcome to ShipDishr</h1>
-              <p>At ShipDishr, we specialize in providing top-tier logistics solutions tailored to meet the diverse needs of individuals and businesses worldwide. With a focus on efficiency, reliability, and innovation, we have built a reputation as a trusted partner in logistics, courier, and transportation services.
+              <h1>Welcome to ShipDashr</h1>
+              <p>At ShipDashr, we specialize in providing top-tier logistics solutions tailored to meet the diverse needs of individuals and businesses worldwide. With a focus on efficiency, reliability, and innovation, we have built a reputation as a trusted partner in logistics, courier, and transportation services.
 
                 From seamless relocation and haulage to fast and secure courier deliveries, we are committed to simplifying the complexities of moving and transportation. Our 24/7 availability ensures that your goods are delivered on time, every time—because we understand that in logistics, time is everything.
 
@@ -182,7 +182,6 @@ const About = () => {
 
         <div className="contacT">
           <h1>Our Customer service is available 24/7</h1>
-          <h1>contact:</h1>
         </div>
 
         <Footer/>

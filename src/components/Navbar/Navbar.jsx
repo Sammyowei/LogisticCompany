@@ -13,7 +13,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container">
         <div className="logo">
-          <h1>ShipDishr</h1>
+          <h1>ShipDashr</h1>
         </div>
         <div className="menu-icon" onClick={handleShowNavbar}>
           ☰

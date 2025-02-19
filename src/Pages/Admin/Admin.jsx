@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { useParcel } from "../../Hooks";
+import { useAuth, useParcel } from "../../Hooks";
 import toast from "react-hot-toast";
 import "./Admin.scss";
+
 const Admin = () => {
+  const { user, logout } = useAuth();
   const { parcels, createParcel, loading, updateParcel, deleteParcel } =
     useParcel();
 
@@ -22,7 +24,11 @@ const Admin = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleInputChange = (e) => {
-    setNewParcel({ ...newParcel, [e.target.name]: e.target.value });
+    if (isEditing) {
+      setEditParcel({ ...editParcel, [e.target.name]: e.target.value });
+    } else {
+      setNewParcel({ ...newParcel, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -55,7 +61,7 @@ const Admin = () => {
   const triggerEdit = (parcel) => {
     setEditParcel(parcel);
     setIsEditing(true);
-    console.log(editParcel);
+    console.log(parcel); // Log the selected parcel directly
     scrollToTop();
   };
 
@@ -69,14 +75,31 @@ const Admin = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-
-    toast.promise(updateParcel(editParcel.$id, editParcel), {
+  
+    const updatedData = {
+      origin: editParcel.origin,
+      destination: editParcel.destination,
+      current_location: editParcel.current_location,
+      status: editParcel.status,
+      estimated_delivery: editParcel.estimated_delivery,
+      senderName: editParcel.senderName || '',
+      senderEmail: editParcel.senderEmail || '',
+      senderPhone: editParcel.senderPhone || '',
+      senderAddress: editParcel.senderAddress || '',
+      receiverName: editParcel.receiverName || '',
+      receiverEmail: editParcel.receiverEmail || '',
+      receiverPhone: editParcel.receiverPhone || '',
+      receiverAddress: editParcel.receiverAddress || '',
+    };
+  
+    toast.promise(updateParcel(editParcel.$id, updatedData), {
       loading: "Updating parcel...",
       success: "Parcel updated successfully",
       error: "Failed to update parcel",
     });
   };
-
+  
+  
   const handleDelete = (id) => {
     toast.promise(deleteParcel(id), {
       loading: "Deleting parcel...",
@@ -88,6 +111,11 @@ const Admin = () => {
   return (
     <div className="admin-page">
       <h1>Admin Parcel Management</h1>
+      <div>
+            <h2>Welcome, {user?.email}</h2>
+            <button onClick={logout} className="btn btn-danger">Logout</button>
+        </div>
+
 
       {isEditing && (
         <div className="edit-parcel">

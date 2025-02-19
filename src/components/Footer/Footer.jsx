@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="footer__container">
         {/* Company Info */}
         <div className="footer__section footer__about">
-          <h3 className="footer__title">ShipDishr</h3>
+          <h3 className="footer__title">ShipDashr</h3>
           <p className="footer__text">
             When you’re moving from your old house to a new location, there are
             thousands of things to be taken care of. We’ll be your assistants,

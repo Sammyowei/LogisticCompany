@@ -10,6 +10,7 @@ import Admin from './Pages/Admin/Admin';
 import Register from './Pages/RegisterAdmin/Register';
 import { Toaster } from 'react-hot-toast';
 import LoginAdmin from './Pages/LoginAdmin/LoginAdmin';
+// import AdminRoute from './protectedRoute';
 
 function App() {
   
@@ -27,7 +28,11 @@ function App() {
         <Route path="/login" element={<LoginAdmin />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NoPage/>} />
-        <Route path='/roland' element={<Admin/>}/>
+        <Route path='/admin' element={<Admin/>}/>
+        {/* <Route path="/admin/*" element={<AdminRoute/>}>
+           
+        </Route>
+         */}
       
     </Routes>
       </>

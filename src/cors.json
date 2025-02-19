@@ -1,8 +1,7 @@
 [
-  {
-    "origins": ["*"],
-    "methods": ["GET", "POST", "OPTIONS", "PUT"],
-    "responseHeaders": ["Content-Type", "Authorization"],
-    "maxAgeSeconds": 3600
-  }
-]
+    {
+      "origin": ["http://localhost:5173"],
+      "method": ["GET", "POST", "OPTIONS", "PUT"],
+      "maxAgeSeconds": 3600
+    }
+  ]

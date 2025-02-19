@@ -69,26 +69,22 @@ const useParcel = () => {
                 current_location: parcelData.current_location,
                 status: parcelData.status,
                 estimated_delivery: parcelData.estimated_delivery,
-                sender: JSON.stringify({
-                    name: parcelData.sender.name || '',
-                    email: parcelData.sender.email || '',
-                    phone: parcelData.sender.phone || '',
-                    address: parcelData.sender.address || ''
-                }),
-                receiver: JSON.stringify({
-                    name: parcelData.receiver.name || '',
-                    email: parcelData.receiver.email || '',
-                    phone: parcelData.receiver.phone || '',
-                    address: parcelData.receiver.address || ''
-                }),
+                senderName: parcelData.sender?.name || '',
+                senderEmail: parcelData.sender?.email || '',
+                senderPhone: parcelData.sender?.phone || '',
+                receiverName: parcelData.receiver?.name || '',
+                receiverEmail: parcelData.receiver?.email || '',
+                receiverPhone: parcelData.receiver?.phone || '',
             });
-            console.log(updatedParcel);
+    
+            console.log("Updated Parcel:", updatedParcel);
             await getParcels();
         } catch (error) {
-            console.log(error);
+            console.error("Update failed:", error);
             throw new Error(error.message);
         }
-    }
+    };
+    
 
     const deleteParcel = async (id) => {
         try {
