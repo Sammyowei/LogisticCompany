@@ -18,6 +18,7 @@ import { Modal } from "../../components/Modal";
 import useParcel from "../../Hooks/useParcel";
 import { useState} from "react";
 import Navbar from '../../components/Navbar/Navbar'
+import TrackShipment from "./Trackshipment";
 
 const Home = () => {
   const { loading, getParcelById, parcel } = useParcel();
@@ -38,6 +39,65 @@ const Home = () => {
       setShowModal(true);
   };
 
+  const styles = {
+    overlay: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 1000
+    },
+    modal: {
+      width: "600px",
+      height: "80vh",
+      backgroundColor: "#f9f9f9",
+      borderRadius: "8px",
+      boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden"
+    },
+    header: {
+      textAlign: "center",
+      backgroundColor: "#2c3e50",
+      color: "#fff",
+      padding: "15px",
+      fontSize: "20px",
+      fontWeight: "bold"
+    },
+    content: {
+      flex: 1,
+      overflowY: "auto",
+      padding: "20px"
+    },
+    section: {
+      marginBottom: "15px",
+      padding: "10px",
+      backgroundColor: "#fff",
+      borderRadius: "6px",
+      boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)"
+    },
+    title: { fontSize: "16px", fontWeight: "bold", color: "#34495e", marginBottom: "5px" },
+    text: { margin: "3px 0", color: "#555" },
+    status: { textAlign: "center", fontSize: "18px", fontWeight: "bold", color: "#e74c3c" },
+    notice: { textAlign: "center", color: "#e74c3c", fontWeight: "bold", marginTop: "10px" },
+    closeButton: {
+      backgroundColor: "#e74c3c",
+      color: "#fff",
+      border: "none",
+      padding: "10px",
+      cursor: "pointer",
+      fontSize: "16px",
+      fontWeight: "bold",
+      width: "100%",
+      borderRadius: "0 0 8px 8px"
+    }
+  };
 
 
 
@@ -45,7 +105,7 @@ const Home = () => {
     <>
       {showModal && (
         <Modal toggleModal={()=>setShowModal(false)}>
-          <h2>Modal</h2>
+          {/* <h2>Modal</h2>
           {loading ? <p>Loading...</p> : (
           <ul>
             <li>{parcel?.trackingId}</li>
@@ -61,7 +121,9 @@ const Home = () => {
             <li>{parcel?.receiverName}</li>
             <li>{parcel?.receiverPhone}</li>
           </ul>
-          )}
+          )} */}
+
+          <TrackShipment onClose={()=>setShowModal(false)}  parcel={parcel}></TrackShipment>
         </Modal>
 
       )}

@@ -76,26 +76,44 @@ const Admin = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
   
+
+    console.log(editParcel)
     const updatedData = {
       origin: editParcel.origin,
       destination: editParcel.destination,
       current_location: editParcel.current_location,
       status: editParcel.status,
-      estimated_delivery: editParcel.estimated_delivery,
-      senderName: editParcel.senderName || '',
-      senderEmail: editParcel.senderEmail || '',
-      senderPhone: editParcel.senderPhone || '',
-      senderAddress: editParcel.senderAddress || '',
-      receiverName: editParcel.receiverName || '',
-      receiverEmail: editParcel.receiverEmail || '',
-      receiverPhone: editParcel.receiverPhone || '',
-      receiverAddress: editParcel.receiverAddress || '',
+      estimated_delivery: new Date(editParcel.estimated_delivery).toISOString,
+      senderName: editParcel.senderName,
+      senderEmail: editParcel.senderEmail,
+      senderPhone: editParcel.senderPhone,
+      receiverName: editParcel.receiverName ,
+      receiverEmail: editParcel.receiverEmail,
+      receiverPhone: editParcel.receiverPhone ,
     };
   
     toast.promise(updateParcel(editParcel.$id, updatedData), {
       loading: "Updating parcel...",
       success: "Parcel updated successfully",
       error: "Failed to update parcel",
+    });
+
+
+    setIsEditing(false);
+    setNewParcel({
+      origin: "",
+      destination: "",
+      current_location: "",
+      status: "",
+      estimated_delivery: new Date(),
+      senderName: "",
+      senderEmail: "",
+      senderPhone: "",
+      senderAddress: "",
+      receiverName: "",
+      receiverEmail: "",
+      receiverPhone: "",
+      receiverAddress: "",
     });
   };
   
@@ -168,14 +186,14 @@ const Admin = () => {
               <option value="" disabled selected>
                 Select Status
               </option>
-              <option value="pending">Pending</option>
-              <option value="in transit">In Transit</option>
-              <option value="delivered">Delivered</option>
-              <option value="cancelled">Cancelled</option>
+              <option value="Pending">Pending</option>
+              <option value="In Transit">In Transit</option>
+              <option value="Delivered">Delivered</option>
+              <option value="Cancelled">Cancelled</option>
             </select>
 
             <input
-              type="date"
+               type="datetime-local"
               name="estimated_delivery"
               placeholder="Estimated Delivery"
               value={newParcel.estimated_delivery}
@@ -275,12 +293,12 @@ const Admin = () => {
             <p>Status: {parcel.status}</p>
             <p>Estimated Delivery: {parcel.estimated_delivery}</p>
             <div className="d-flex gap-2">
-              <button
+              {/* <button
                 onClick={() => triggerEdit(parcel)}
                 className="btn btn-primary"
               >
                 Edit
-              </button>
+              </button> */}
               <button
                 onClick={() => handleDelete(parcel.$id)}
                 className="btn btn-danger"

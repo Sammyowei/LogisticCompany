@@ -7,12 +7,12 @@ const useParcel = () => {
     const [loading, setLoading] = useState(false);
 
     const generateTrackingId = () => {
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         let trackingId = '';
         for (let i = 0; i < 12; i++) {
             trackingId += characters.charAt(Math.floor(Math.random() * characters.length));
         }
-        return trackingId;
+        return "SHDR-" +trackingId;
     };
 
     console.log(generateTrackingId());
@@ -20,9 +20,13 @@ const useParcel = () => {
     const createParcel = async (newParcel) => {
         setLoading(true);
         try {
+
+
+
             const parcel = await databases.createDocument(DB, PARCEL, ID.unique(), {
                 tracking_number: generateTrackingId(),
                 origin: newParcel.origin,
+                created_at: new Date().toISOString(),
                 destination: newParcel.destination,
                 current_location: newParcel.current_location,
                 status: newParcel.status,
